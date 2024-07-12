@@ -1,0 +1,7 @@
+(function(w,d){var options={'el':'anketolog-frame-410327','id':410327,'key':'KH9eDjIr','origin':'https://anketolog.ru','params':'','base':'/api/v2/frame/survey/'},iframe=d.createElement('iframe'),div=d.getElementById(options.el);if(!div){return;}
+iframe.src=options.origin+
+options.base+
+options.id+'?token='+
+options.key+'&'+options.params;iframe.id='anketolog-'+(Math.random()*100000000).toFixed(0);iframe.width='100%';iframe.height=200;iframe.border=0;iframe.frameSpacing=0;iframe.frameBorder=0;var height=null;var parse=function(d){var c=d.split("::");return{method:c[0],key:c[1],value:c[2]};};var onmsg=function(e){try{var msg=parse(e.data);if(e.origin===options.origin){if(msg.key===options.key){if(msg.method==='resize'){if(msg.value!==height){iframe.style.height=msg.value+'px';height=msg.value;}}
+if(msg.method==='formsubmit'){iframe.scrollIntoView({block:"nearest",inline:"nearest"});}}}}catch(error){}};if(w.addEventListener){w.addEventListener('message',onmsg,false);}else if(w.attachEvent){w.attachEvent('onmessage',onmsg);}else if(d.attachEvent){d.attachEvent('onmessage',onmsg);}else{w.onmessage=onmsg;}
+div.appendChild(iframe);iframe.onload=function(){if(iframe.contentWindow&&iframe.contentWindow.postMessage){iframe.contentWindow.postMessage('resize','*');}};})(window,document);
